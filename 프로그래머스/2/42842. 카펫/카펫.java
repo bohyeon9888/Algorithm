@@ -4,21 +4,17 @@ class Solution {
         
         int sum = brown + yellow;
         
-        for (int i = 3; i <= sum; i++) {
-            int j = sum / i;
+        for (int h = 3; h <= sum; h++) {
+            int w = sum / h;
+            if (w < 3) continue;
             
-            if (sum % i == 0 && j >= 3) {
-                int w = Math.max(i, j);
-                int h = Math.min(i, j);
-                
-                int cnt = (w - 2) * (h - 2);
-                if (cnt == yellow) {
+            if (w >= h) {
+                if ((w - 2) * (h - 2) == yellow) {
                     answer[0] = w;
                     answer[1] = h;
                     return answer;
-                } 
+                }
             }
-            
         }
         
         return answer;
